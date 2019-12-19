@@ -28,6 +28,9 @@ then
   else echo "Already initialised, try running 'tk'."
   fi
 
+elif [ "$1" = "note" ]
+then echo -e "$(date)\tnote\t$2" >> "$tklog"
+
 else echo "Timekeeper usage: 'init' to create 'tk' alias for timekeeper script, 'view' to view log,  'start [action name]' and 'stop [action name]' to mark actions in log."
 
 fi
