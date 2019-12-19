@@ -1,0 +1,33 @@
+#!/bin/sh
+
+tklog=~/.timekeeper/timekeeper.log
+if [ "$1" = "view" ]
+then
+  if [ -f "$tklog" ]
+  then less "$tklog"
+  else echo No log present.
+  fi
+
+elif [ "$1" = "start" ]
+then echo -e "$(date)\tstart\t$2" >> "$tklog"
+
+elif [ "$1" = "stop" ]
+then echo -e "$(date)\tstop\t$2" >> "$tklog"
+
+elif [ "$1" = "init" ]
+then
+  bashrclocal=~/.bashrc
+  initstring="tk=~/.timekeeper/./tk"
+  chkres=$(grep -c "$initstring" "$bashrclocal")
+
+  #check if line exists
+  if [ "$chkres" = "0" ]
+  then
+    echo "$initstring" >> "$bashrclocal"
+    echo "Initialised" && tail -n1 "$bashrclocal"
+  else echo "Already initialised, try running 'tk'."
+  fi
+
+else echo "Timekeeper usage: 'init' to create 'tk' alias for timekeeper script, 'view' to view log,  'start [action name]' and 'stop [action name]' to mark actions in log."
+
+fi
