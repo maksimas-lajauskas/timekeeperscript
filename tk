@@ -4,7 +4,7 @@ tklog=~/.timekeeper/timekeeper.log
 if [ "$1" = "view" ]
 then
   if [ -f "$tklog" ]
-  then less "$tklog"
+  then tac "$tklog" | less
   else echo No log present.
   fi
 
