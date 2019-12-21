@@ -9,10 +9,13 @@ Timekeeper usage:
     'init' to create 'tk' alias for timekeeper script
     'view' to view log (log automatically created when running start or stop if it does not exist)
     'start [action name]' and 'stop [action name]' to mark actions in log
+    'note [note text]' to annotate log (useful for sparse small notes when working on testing/research) #also creates logfile if there isn't one
+    #action names and note longer than one word need to be put in quotes (single or double)
 
 Dependencies:
 
     less
+    tac
     grep
     bash (for .bashrc)
 
