@@ -1,23 +1,32 @@
-A simple, dumb time keeper script for auditing time spent doing tasks.
+A simple, dumb time keeper script for auditing time spent doing tasks and making small notes.
 
 Install:
 
-    git clone https://github.com/maksimas-lajauskas/timekeeperscript.git  ~/.timekeeper && chmod 700 ~/.timekeeper/tk && ~/.timekeeper/./tk init
+    git clone https://github.com/maksimas-lajauskas/timekeeperscript.git  \
+    && ~/.timekeeper && chmod 700 ~/.timekeeper/tk \
+    && ~/.timekeeper/./tk init
 
 Timekeeper usage:
 
     'init' to create 'tk' alias for timekeeper script
-    'view' to view log (log automatically created when running start or stop if it does not exist)
+    'view' to view log (log autocreates by using any writing commant e.g. 'start')
+    #action names and notes longer than one word need to be put in quotes ('single' or "double")
     'start [action name]' and 'stop [action name]' to mark actions in log
-    'note [note text]' to annotate log (useful for sparse small notes when working on testing/research) #also creates logfile if there isn't one
-    #action names and note longer than one word need to be put in quotes (single or double)
+    'note [note text]' to annotate log (useful for sparse small notes when working on testing/research)
 
-Dependencies:
+Dependencies (all core gnu/unix tools):
 
+    #for 'view'
     less
     tac
+
+    #for init
     grep
+    tail
     bash (for .bashrc)
+
+    #for writing to log and init
+    echo
 
 License:
 
