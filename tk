@@ -14,6 +14,12 @@ then echo -e "$(date)\tstart\t$2" >> "$tklog"
 elif [ "$1" = "stop" ]
 then echo -e "$(date)\tstop\t$2" >> "$tklog"
 
+elif [ "$1" = "i" ]
+then echo -e "$(date)\tinterrupt\t<auto: previous action>" >> "$tklog"
+
+elif [ "$1" = "r" ]
+then echo -e "$(date)\tresume\t<auto: previous action>" >> "$tklog"
+
 elif [ "$1" = "init" ]
 then
   bashrclocal=~/.bashrc
